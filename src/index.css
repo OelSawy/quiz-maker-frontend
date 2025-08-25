@@ -28,6 +28,19 @@ button {
   transition: border-color 0.25s;
 }
 
+button.small {
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0.6em 1.2em;
+  width: 6em;
+  font-size: 1.5em;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
 button:hover {
   border-color: #646cff;
 }
@@ -35,4 +48,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
