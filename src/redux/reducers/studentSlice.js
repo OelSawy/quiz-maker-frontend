@@ -19,6 +19,7 @@ export const submitQuiz = createAsyncThunk(
   'student/submitQuiz',
   async (payload, { rejectWithValue }) => {
     try {
+      console.log(payload);
       const response = await api.post(
         apiRoutes.submitQuiz(payload.id),
         payload
@@ -40,6 +41,9 @@ const studentSlice = createSlice({
     answers: [],
   },
   reducers: {
+    addAnswer: (state, action) => {
+      state.answers.push(action.payload);
+    } ,
     resetStudentStatuses: state => {
       state.getQuizzesStudentStatus = 'idle';
       state.submitQuizStatus = 'idle';
@@ -83,4 +87,4 @@ const studentSlice = createSlice({
 });
 
 export default studentSlice.reducer;
-export const { resetStudentStatuses } = studentSlice.actions;
+export const { resetStudentStatuses, addAnswer, clearAnswers } = studentSlice.actions;

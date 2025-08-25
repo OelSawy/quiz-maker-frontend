@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import QuizItem from './components/QuizItem';
 import QuizList from './components/QuizList';
-import { getQuizzesStudent } from '../../../../redux/reducers/studentSlicer';
+import { getQuizzesStudent } from '../../../../redux/reducers/studentSlice';
 
 export default function Student() {
   const { getQuizzesStatus, submitQuizStatus, error, quizzes, answers } =
