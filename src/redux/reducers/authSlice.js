@@ -35,7 +35,9 @@ export const logoutUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.post(apiRoutes.logout);
-      localStorage.removeItem('user');
+      if (localStorage.getItem('user')) {
+        localStorage.removeItem('user');
+      }
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response?.data || 'Logout failed');
@@ -52,7 +54,14 @@ const authSlice = createSlice({
     logoutStatus: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    resetAuthStatuses: state => {
+      state.registerStatus = 'idle';
+      state.loginStatus = 'idle';
+      state.logoutStatus = 'idle';
+      state.error = null;
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(registerUser.pending, state => {
@@ -74,6 +83,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loginStatus = 'succeeded';
         state.user = action.payload.user;
+        localStorage.setItem('user', JSON.stringify(action.payload.user));
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loginStatus = 'failed';
@@ -95,3 +105,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { resetAuthStatuses } = authSlice.actions;
