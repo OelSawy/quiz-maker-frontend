@@ -18,7 +18,7 @@ export default function Teacher() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getQuizzes(null));
+    dispatch(getQuizzes(null));
   }, [dispatch]);
 
   return (

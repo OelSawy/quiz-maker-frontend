@@ -1,5 +1,12 @@
 import { IconButton } from '@mui/material';
-import { Calendar, CircleUser, Clock, Play, SquarePen, Timer } from 'lucide-react';
+import {
+  Calendar,
+  CircleUser,
+  Clock,
+  Play,
+  SquarePen,
+  Timer,
+} from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { deleteQuiz } from '../../../../../redux/reducers/teacherSlice';
 import { formatDate } from '../../../../../utils/formatDate';

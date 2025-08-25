@@ -7,6 +7,6 @@ export const store = configureStore({
   reducer: {
     auth: authSlice,
     teacher: teacherSlice,
-    student: studentSlicer
+    student: studentSlicer,
   },
 });

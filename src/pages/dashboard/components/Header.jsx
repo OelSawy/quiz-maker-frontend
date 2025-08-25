@@ -1,7 +1,10 @@
 // @ts-nocheck
 import { BookOpen } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser, resetAuthStatuses } from '../../../redux/reducers/authSlice';
+import {
+  logoutUser,
+  resetAuthStatuses,
+} from '../../../redux/reducers/authSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +18,7 @@ export default function Header() {
   useEffect(() => {
     if (logoutStatus === 'succeeded') {
       navigate('/login');
-      dispatch(resetAuthStatuses())
+      dispatch(resetAuthStatuses());
     }
   }, [logoutStatus]);
 

@@ -60,7 +60,7 @@ const authSlice = createSlice({
       state.loginStatus = 'idle';
       state.logoutStatus = 'idle';
       state.error = null;
-    }
+    },
   },
   extraReducers: builder => {
     builder

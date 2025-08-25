@@ -1,7 +1,6 @@
-
 export function formatDate(dateString) {
   const date = new Date(dateString);
-  
+
   const formattedDate = date.toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'long',
