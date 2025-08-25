@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "checkJs": true,
+    "baseUrl": "./src",
+    "lib": ["esnext", "dom"], 
+    "types": [
+      "vite/client",
+    ]
+  },
+  "include": ["src", "vite-env.d.ts"]
+}
