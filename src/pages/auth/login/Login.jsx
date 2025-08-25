@@ -31,14 +31,12 @@ export default function Login() {
   useEffect(() => {
     if (loginStatus === 'succeeded' && user) {
       navigate('/dashboard');
+    } else {
+      alert('Username or Passowrd incorrect');
     }
   }, [loginStatus, user, navigate]);
 
-  return loginStatus === 'failed' ? (
-    <div>{error}</div>
-  ) : loginStatus === 'loading' ? (
-    <div></div>
-  ) : (
+  return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 space-y-6">
         <div className="flex flex-col gap-2">
@@ -130,6 +128,5 @@ export default function Login() {
           </Link>
         </Typography>
       </div>
-    </div>
-  );
+    </div>)
 }

@@ -18,7 +18,6 @@ export default function Header() {
   useEffect(() => {
     if (logoutStatus === 'succeeded') {
       navigate('/login');
-      dispatch(resetAuthStatuses());
     }
   }, [logoutStatus]);
 

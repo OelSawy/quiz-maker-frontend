@@ -55,6 +55,9 @@ const teacherSlice = createSlice({
     addQuestion: (state, action) => {
       state.questions.push(action.payload);
     },
+    removeQuestion: (state, action) => {
+      state.questions = state.questions.filter(question => question.questionId != action.payload);
+    },
     resetTeacherStatuses: state => {
       state.getQuizzesStatus = 'idle';
       state.createQuizStatus = 'idle';
@@ -114,4 +117,4 @@ const teacherSlice = createSlice({
 });
 
 export default teacherSlice.reducer;
-export const { resetTeacherStatuses } = teacherSlice.actions;
+export const { resetTeacherStatuses, addQuestion, clearQuestions } = teacherSlice.actions;
