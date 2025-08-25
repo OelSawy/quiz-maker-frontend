@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswer, submitQuiz } from "../../../redux/reducers/studentSlice";
+import { addAnswer, resetStudentStatuses, submitQuiz } from "../../../redux/reducers/studentSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function TakeQuiz() {
@@ -33,6 +33,7 @@ export default function TakeQuiz() {
     useEffect(() => {
         if (submitQuizStatus === 'succeeded') {
             navigate('/dashboard');
+            dispatch(resetStudentStatuses());
         }
     }, [submitQuizStatus]);
 
