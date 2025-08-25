@@ -3,8 +3,8 @@ export const apiRoutes = {
   login: '/auth/login',
   logout: '/auth/logout',
   createQuiz: '/teacher/quiz',
-  getQuizzes: '/teacher/quiz',
+  getQuizzes: '/teacher/quizzes',
   deleteQuiz: quizId => `/teacher/quiz/${quizId}`,
-  getQuizzesStudent: '/student/quiz',
+  getQuizzesStudent: '/student/quizzes',
   submitQuiz: quizId => `/student/quiz/${quizId}/submit`,
 };
