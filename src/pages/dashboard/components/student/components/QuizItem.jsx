@@ -63,8 +63,14 @@ export default function QuizItem({ quiz }) {
               padding: 0,
             }}
             // @ts-ignore
-            onClick={() => {navigate('/student/quiz', { state: { quiz: quiz } });}}
-            disabled={now < quizStart || now > quizEnd || user.quizSubmissions.includes(quiz.id)}
+            onClick={() => {
+              navigate('/student/quiz', { state: { quiz: quiz } });
+            }}
+            disabled={
+              now < quizStart ||
+              now > quizEnd ||
+              user.quizSubmissions.includes(quiz.id)
+            }
           >
             <Play color="green" />
           </IconButton>

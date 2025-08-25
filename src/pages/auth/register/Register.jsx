@@ -53,14 +53,12 @@ export default function Register() {
   useEffect(() => {
     if (registerStatus === 'succeeded' && user) {
       navigate('/login');
+    } else {
+      alert('Registration failed please try again')
     }
   }, [registerStatus, user, navigate]);
 
-  return registerStatus === 'failed' ? (
-    <div>{error}</div>
-  ) : registerStatus === 'loading' ? (
-    <div></div>
-  ) : (
+  return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 space-y-6">
         <div className="flex flex-col gap-2">

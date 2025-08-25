@@ -42,7 +42,7 @@ const studentSlice = createSlice({
   reducers: {
     addAnswer: (state, action) => {
       state.answers.push(action.payload);
-    } ,
+    },
     resetStudentStatuses: state => {
       state.getQuizzesStudentStatus = 'idle';
       state.submitQuizStatus = 'idle';
@@ -86,4 +86,5 @@ const studentSlice = createSlice({
 });
 
 export default studentSlice.reducer;
-export const { resetStudentStatuses, addAnswer, clearAnswers } = studentSlice.actions;
+export const { resetStudentStatuses, addAnswer, clearAnswers } =
+  studentSlice.actions;

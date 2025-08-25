@@ -20,7 +20,7 @@ export default function Landing() {
       <div className="flex justify-center">
         <div className="flex flex-row w-1/2 justify-evenly items-center">
           <button onClick={() => navigate('/register')}>Register</button>
-          <button>Login</button>
+          <button onClick={() => navigate('/login')}>Login</button>
         </div>
       </div>
     </div>
