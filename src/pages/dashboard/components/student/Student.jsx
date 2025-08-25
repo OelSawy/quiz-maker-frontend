@@ -15,10 +15,6 @@ export default function Student() {
     dispatch(getQuizzesStudent(null));
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(quizzes);
-  }, [quizzes]);
-
   return (
     <div className="w-full h-full flex justify-center mt-20">
       <div className="w-3/5 h-full">

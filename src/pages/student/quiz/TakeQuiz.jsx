@@ -45,13 +45,13 @@ export default function TakeQuiz() {
                 <p className="text-2xl text-black">{currentQuestion.question}</p>
 
                 <div className="flex flex-row w-[80%] justify-between">
-                    {currentQuestion.type === "TEXT" ? (
-                        <div className="w-1/2 bg-black">
+                    {currentQuestion.questionType === "TEXT" ? (
+                        <div className="w-1/2 ">
                             <input
                                 type="text"
                                 value={answer}
                                 onChange={e => setAnswer(e.target.value)}
-                                className="w-full p-2 rounded border-2 border-black"
+                                className="w-full p-2 rounded border-2 border-black text-black"
                                 placeholder="Enter your answer..."
                             />
                         </div>

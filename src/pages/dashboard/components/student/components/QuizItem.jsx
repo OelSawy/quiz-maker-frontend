@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { IconButton } from '@mui/material';
 import {
   Calendar,
@@ -7,7 +8,7 @@ import {
   SquarePen,
   Timer,
 } from 'lucide-react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatDate } from '../../../../../utils/formatDate';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,6 +16,8 @@ export default function QuizItem({ quiz }) {
   const dispatch = useDispatch();
 
   const { date, time } = formatDate(quiz.startTime);
+
+  const { user } = useSelector(state => state.auth);
 
   const quizStart = new Date(quiz.startTime).getTime();
   const quizEnd = quizStart + quiz.durationInMinutes * 60 * 1000;
@@ -61,7 +64,7 @@ export default function QuizItem({ quiz }) {
             }}
             // @ts-ignore
             onClick={() => {navigate('/student/quiz', { state: { quiz: quiz } });}}
-            disabled={now < quizStart || now > quizEnd}
+            disabled={now < quizStart || now > quizEnd || user.quizSubmissions.includes(quiz.id)}
           >
             <Play color="green" />
           </IconButton>

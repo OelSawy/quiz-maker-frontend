@@ -19,7 +19,6 @@ export const submitQuiz = createAsyncThunk(
   'student/submitQuiz',
   async (payload, { rejectWithValue }) => {
     try {
-      console.log(payload);
       const response = await api.post(
         apiRoutes.submitQuiz(payload.id),
         payload
