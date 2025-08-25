@@ -17,9 +17,9 @@ export default function Teacher() {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //     dispatch(getQuizzes(null));
-  // }, [dispatch]);
+  useEffect(() => {
+      dispatch(getQuizzes(null));
+  }, [dispatch]);
 
   return (
     <div className="w-full h-full flex justify-center mt-20">
