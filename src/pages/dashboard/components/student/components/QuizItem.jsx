@@ -8,8 +8,8 @@ import {
   Timer,
 } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { deleteQuiz } from '../../../../../redux/reducers/teacherSlice';
 import { formatDate } from '../../../../../utils/formatDate';
+import { useNavigate } from 'react-router-dom';
 
 export default function QuizItem({ quiz }) {
   const dispatch = useDispatch();
@@ -19,6 +19,8 @@ export default function QuizItem({ quiz }) {
   const quizStart = new Date(quiz.startTime).getTime();
   const quizEnd = quizStart + quiz.durationInMinutes * 60 * 1000;
   const now = Date.now();
+
+  const navigate = useNavigate();
 
   return (
     <div className="flex justify-center my-4">
@@ -58,7 +60,7 @@ export default function QuizItem({ quiz }) {
               padding: 0,
             }}
             // @ts-ignore
-            onClick={() => dispatch(deleteQuiz(quiz.id))}
+            onClick={() => {navigate('/student/quiz', { state: { quiz: quiz } });}}
             disabled={now < quizStart || now > quizEnd}
           >
             <Play color="green" />
